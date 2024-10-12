@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "provider": "cdnjs",
+      "library": "flowbite@2.5.1",
+      "destination": "wwwroot/lib/flowbite/",
+      "files": [
+        "flowbite.min.js",
+        "flowbite.min.css"
+      ]
+    }
+  ]
+}

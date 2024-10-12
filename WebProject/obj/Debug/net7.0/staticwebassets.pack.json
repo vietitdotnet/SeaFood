@@ -1,0 +1,457 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\WebProject.bundle.scp.css",
+      "PackagePath": "staticwebassets\\WebProject.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\ImageManager\\ProductImg\\240534059_c07cea2a.webp",
+      "PackagePath": "staticwebassets\\ImageManager\\ProductImg\\240534059_c07cea2a.webp"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\ImageManager\\ProductImg\\240632063_0b7396c8.webp",
+      "PackagePath": "staticwebassets\\ImageManager\\ProductImg\\240632063_0b7396c8.webp"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\ImageManager\\ProductImg\\240747735_42bdaecb.webp",
+      "PackagePath": "staticwebassets\\ImageManager\\ProductImg\\240747735_42bdaecb.webp"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\ImageManager\\ProductImg\\242102886_75de25fe.webp",
+      "PackagePath": "staticwebassets\\ImageManager\\ProductImg\\242102886_75de25fe.webp"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\ImageManager\\ProductImg\\242850179_8a0374a2.webp",
+      "PackagePath": "staticwebassets\\ImageManager\\ProductImg\\242850179_8a0374a2.webp"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\ImageManager\\ProductImg\\242923687_0bee92d7.webp",
+      "PackagePath": "staticwebassets\\ImageManager\\ProductImg\\242923687_0bee92d7.webp"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\ImageManager\\ProductImg\\243502457_190f4ec4.webp",
+      "PackagePath": "staticwebassets\\ImageManager\\ProductImg\\243502457_190f4ec4.webp"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\ImageManager\\ProductImg\\244222091_4c11dad2.webp",
+      "PackagePath": "staticwebassets\\ImageManager\\ProductImg\\244222091_4c11dad2.webp"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\Image\\camera.png",
+      "PackagePath": "staticwebassets\\Image\\camera.png"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\Image\\default.jpg",
+      "PackagePath": "staticwebassets\\Image\\default.jpg"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\Image\\delete.png",
+      "PackagePath": "staticwebassets\\Image\\delete.png"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\Image\\product.jpg",
+      "PackagePath": "staticwebassets\\Image\\product.jpg"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\Image\\san-pham-ban-chay.svg",
+      "PackagePath": "staticwebassets\\Image\\san-pham-ban-chay.svg"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\css\\card-carousel-slider.css",
+      "PackagePath": "staticwebassets\\css\\card-carousel-slider.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\css\\hotline.css",
+      "PackagePath": "staticwebassets\\css\\hotline.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\css\\img-manager.css",
+      "PackagePath": "staticwebassets\\css\\img-manager.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\css\\manage.css",
+      "PackagePath": "staticwebassets\\css\\manage.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\css\\manager.css",
+      "PackagePath": "staticwebassets\\css\\manager.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\css\\multi-leve-hover.css",
+      "PackagePath": "staticwebassets\\css\\multi-leve-hover.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\css\\search-autocomplete.css",
+      "PackagePath": "staticwebassets\\css\\search-autocomplete.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\default-img\\240501809_14126c77.webp",
+      "PackagePath": "staticwebassets\\default-img\\240501809_14126c77.webp"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\default-img\\HINH1-247x247.jpg",
+      "PackagePath": "staticwebassets\\default-img\\HINH1-247x247.jpg"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\default-img\\ca-bop-giong-chat-luong.jpg",
+      "PackagePath": "staticwebassets\\default-img\\ca-bop-giong-chat-luong.jpg"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\default-img\\cachimtrang-hinh1-247x247.webp",
+      "PackagePath": "staticwebassets\\default-img\\cachimtrang-hinh1-247x247.webp"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\default-img\\giong-ca-be-dung.jpg",
+      "PackagePath": "staticwebassets\\default-img\\giong-ca-be-dung.jpg"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\default-img\\giong-ca-chem-chat-luong-1.jpg",
+      "PackagePath": "staticwebassets\\default-img\\giong-ca-chem-chat-luong-1.jpg"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\default-img\\giong-ca-mu-den-chat-luong.jpg",
+      "PackagePath": "staticwebassets\\default-img\\giong-ca-mu-den-chat-luong.jpg"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\icon\\load.gif",
+      "PackagePath": "staticwebassets\\icon\\load.gif"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\icon\\zalo.png",
+      "PackagePath": "staticwebassets\\icon\\zalo.png"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\image-background\\bg_menuDropdown.png",
+      "PackagePath": "staticwebassets\\image-background\\bg_menuDropdown.png"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\image-background\\buble.png",
+      "PackagePath": "staticwebassets\\image-background\\buble.png"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\image-background\\lightTopMenu.png",
+      "PackagePath": "staticwebassets\\image-background\\lightTopMenu.png"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\js\\carousel.js",
+      "PackagePath": "staticwebassets\\js\\carousel.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\js\\qr.js",
+      "PackagePath": "staticwebassets\\js\\qr.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\js\\shared-facebook.js",
+      "PackagePath": "staticwebassets\\js\\shared-facebook.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\flowbite\\flowbite.min.css",
+      "PackagePath": "staticwebassets\\lib\\flowbite\\flowbite.min.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\flowbite\\flowbite.min.js",
+      "PackagePath": "staticwebassets\\lib\\flowbite\\flowbite.min.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\qr-code\\.gitignore",
+      "PackagePath": "staticwebassets\\lib\\qr-code\\.gitignore"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\qr-code\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\qr-code"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\qr-code\\README.md",
+      "PackagePath": "staticwebassets\\lib\\qr-code\\README.md"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\qr-code\\bower.json",
+      "PackagePath": "staticwebassets\\lib\\qr-code\\bower.json"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\qr-code\\index-svg.html",
+      "PackagePath": "staticwebassets\\lib\\qr-code\\index-svg.html"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\qr-code\\index.html",
+      "PackagePath": "staticwebassets\\lib\\qr-code\\index.html"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\qr-code\\index.svg",
+      "PackagePath": "staticwebassets\\lib\\qr-code\\index.svg"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\qr-code\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\qr-code\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\qr-code\\qrcode.js",
+      "PackagePath": "staticwebassets\\lib\\qr-code\\qrcode.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\qr-code\\qrcode.min.js",
+      "PackagePath": "staticwebassets\\lib\\qr-code\\qrcode.min.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\logo\\logo_vi-VN.png",
+      "PackagePath": "staticwebassets\\logo\\logo_vi-VN.png"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.WebProject.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.WebProject.props",
+      "PackagePath": "build\\WebProject.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.WebProject.props",
+      "PackagePath": "buildMultiTargeting\\WebProject.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.WebProject.props",
+      "PackagePath": "buildTransitive\\WebProject.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

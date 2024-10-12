@@ -1,0 +1,67 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Tạo danh mục";
+    var SeleteCategorys = ViewData["SeleteCaterorys"] as List<Category>;
+}
+
+@section Breadcrumb{
+  
+
+    <li aria-current="page">
+        <div class="flex items-center">
+            <svg class="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+            </svg>
+            <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Tạo danh mục</span>
+        </div>
+    </li>
+}
+
+<div class="container form-manager">
+    <form method="post" class="max-w-sm mx-auto">
+        <h2 class="title-manager">@ViewData["Title"]</h2>
+        <hr />
+        <div class="mt-4">
+            <label asp-for="@Model.Name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tên danh mục</label>
+            <input asp-for="@Model.Name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Nhập tên">
+            <p class="mt-2 text-red-600 dark:text-red-500"><span asp-validation-for="@Model.Name" class="font-medium"></span></p>
+        </div>
+        <div class="mt-4">
+            <label asp-for="@Model.Slug" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">SLUG</label>
+            <input asp-for="@Model.Slug" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Nhập slug">
+            <p class="mt-2 text-red-600 dark:text-red-500"><span asp-validation-for="@Model.Slug" class="font-medium"></span></p>
+        </div>
+        <div class="mt-4">
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Danh mục cha</label>
+            <select asp-for="@Model.ParentCategoryID"
+                    asp-items="@(new SelectList(SeleteCategorys,"ID","Name"))" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                <option value="">--Không--</option>
+                
+            </select>
+            <p class="mt-2 text-red-600 dark:text-red-500"><span asp-validation-for="@Model.ParentCategoryID" class="font-medium"></span></p>
+
+        </div>
+
+        <div class="flex items-center mt-4 mb-5 bg-blue-100 p-4">
+            <label class="block text-sm font-medium text-gray-900 dark:text-white">Nổi bật:</label>
+            <div class="mx-2">
+                @Html.RadioButtonFor(model => model.IsFeatured, true) <span class="mr-2 text-sm">Có</span>
+                @Html.RadioButtonFor(model => model.IsFeatured, false) <span class="text-sm">Không</span>
+            </div>
+
+        </div>
+
+        <button type="submit" class="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tạo</button>
+        <a asp-action="index" asp-controller="category"  class="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Về danh sách</a>
+
+        <div asp-validation-summary="ModelOnly" class="mt-2 text-red-600 dark:text-red-500" role="alert"></div>
+    </form>
+
+   
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

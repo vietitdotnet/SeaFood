@@ -1,0 +1,35 @@
+﻿@model Product
+
+<div class="card">
+    <div class="header">
+        <div class="profile-pic">
+            <a asp-action="detail" asp-controller="home" asp-route-slug="@Model.Slug"><img src="@Model.ImageURL" /></a>
+        </div>
+    </div>
+    <div class="details">
+        <p class="profession">@Model.Category?.Name</p>
+        <h2 class="card-title"><a asp-action="detail" asp-controller="home" asp-route-slug="@Model.Slug"></a>@Model.Title</h2>
+        <p class="describe">
+            @Model.Description
+        </p>
+        <div class="social">
+            <i class="ri-facebook-circle-fill"></i>
+            <i class="ri-instagram-fill"></i>
+          
+        </div>
+    </div>
+    <div class="footer">
+        @*  <div class="followings">
+        <p>Following</p>
+        <p class="count">56</p>
+        </div>
+        <div class="followers">
+        <p>Followers</p>
+        <p class="count">1m</p>
+        </div>
+        <div class="likes">
+        <p>Likes</p>
+        <p class="count">1k</p>
+        </div>*@
+    </div>
+</div>

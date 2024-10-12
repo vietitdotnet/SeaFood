@@ -1,0 +1,103 @@
+﻿@page
+@model AddRoleModel
+@{
+    ViewData["Title"] = "Vai trò";
+
+    ViewData["ActivePage"] = AdminNavPages.User;
+}
+
+@section Breadcrumb{
+
+    <li class="breadcrumb-item active" aria-current="page">
+        @ViewData["Title"]
+    </li>
+
+}
+
+<div class="row mt-2 mb-5">
+    <div class="col-md-6 mb-3">
+        <div class="card">
+            <h5 class="card-header text-primary">
+                @ViewData["title"]
+            </h5>
+            <form method="post">
+                <div class="card-body">
+                    @Html.HiddenFor(x => x.Input.Id)
+                    <div class="mb-2">
+                        <label asp-for="RoleUsers"></label>
+                        <select id="SelectRole" asp-for="RoleUsers" asp-items="Model.addRoles" class="form-control"></select>
+                        <span asp-validation-for="RoleUsers" class="text-danger"></span>
+                    </div>
+                    <div class="mb-2">
+                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                    </div>
+                    <hr class="text-primary" />
+                    <div class="mb-2">
+                        <p>
+                            <a class="link-primary" asp-area="Identity" asp-page="./detail" asp-route-id="@Model.Input.Id" >Quay về.</a>
+                        </p>
+                    </div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="">
+            <div class="">
+                <p class="text-primary">Các claims có trong vai trò :</p>
+                       
+                    @if (Model.roleCliamUser.Count > 0)
+                    {
+                        <ul>
+                            @foreach (var item in Model.roleCliamUser)
+                            {
+                                <li>
+                                    @item.ClaimType = @item.ClaimValue
+                                </li>
+                            }
+                        </ul>
+                                
+                    }
+                    else
+                    {
+                        <p class="text-danger">chưa có</p>
+                    }
+            </div>
+            <hr />
+            <div class="">
+                <div class="d-flex flex-row bd-highlight">
+                    <p class="text-primary">Các claims của người dùng : &nbsp;</p>
+                    <a class="text-info fst-italic" asp-area="Identity" asp-page-handler="AddUserClaim" asp-page="./UserRoleClaim" asp-route-id="@Model.Input.Id">(+Thêm)</a>
+                </div>
+                @if (Model.userClaims.Count > 0)
+                {
+
+                    <ul>
+                        @foreach (var item in Model.userClaims)
+                        {
+                            <li class="d-flex flex-row bd-highlight">
+                                <a class="fst-italic" asp-area="Identity" asp-page-handler="EditUserClaim"; asp-route-id="@item.Id" asp-page="./UserRoleClaim">@item.ClaimType = @item.ClaimValue</a>&nbsp;
+                                <a class="fst-italic text-danger " asp-page-handler="DeleteUserClaim" asp-area="Identity" asp-route-id="@item.Id" asp-page="./UserRoleClaim">( xóa )</a>
+                            </li>
+                        }
+                    </ul>
+
+                }
+                else
+                {
+                    <p class="text-danger">Chưa có</p>
+                }
+            </div>
+        </div>
+                    
+             
+    </div>
+</div>
+            
+
+
+@section Scripts{
+   
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

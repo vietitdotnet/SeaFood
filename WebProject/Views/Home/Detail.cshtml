@@ -1,0 +1,331 @@
+﻿@model Product
+@{
+    var url = ViewData["curenturl"] as string;
+}
+
+
+@section Meta{
+    <meta property="og:url" content="@url" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@Model.Title" />
+    <meta property="og:description" content="@Model.Description" />
+    <meta property="og:image" content="@Model.ImageURL" />
+}
+
+@section Links{
+
+    <link href="~/css/search-autocomplete.css" rel="stylesheet" />
+    <link href="~/css/hotline.css" rel="stylesheet" />
+    <style>
+        .product-img--main {
+            position: relative;
+            overflow: hidden;
+           
+            width: 100%;
+            min-height: 300px;
+            float: left;
+            
+            padding: 0px 10px 0px 10px;
+
+        }
+
+        .product-img--main__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            -webkit-transition: -webkit-transform .5s ease-out;
+            transition: -webkit-transform .5s ease-out;
+            transition: transform .5s ease-out;
+            transition: transform .5s ease-out,-webkit-transform .5s ease-out;
+        }
+
+
+        .title-product{
+            color: #1e73be !important;
+            font-size: 18px;
+            font-family: 'Montserrat', sans-serif;
+           
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 28px;
+            text-transform: uppercase;
+            
+            padding-top: 10px;
+        }
+
+        .description-product{
+            margin-top: 10px;
+        }
+        .description-product p{
+
+            font-family: 'Montserrat', sans-serif;
+            
+            font-size: 14px;
+        }
+
+        .short-description-product{
+            color: #1e73be !important;
+
+        }
+
+        .product-detail{
+            margin-top: 20px;
+
+        }
+
+        .product-rating {
+            color: #ffd800;
+        }
+
+        .feedback-product{
+            margin-bottom: 15px;
+            margin-top : 8px;
+        }
+
+        .contact-number{
+            position: relative;
+            color: #303030;
+           
+            font-weight: 400;
+           
+         
+            display: inline-block;
+            
+        }
+
+        .contact-number .icon-box {
+            position: relative;
+            color: #23408f;
+               
+            line-height: 1em;
+               
+            display: inline-block;
+        }
+
+        .contact-number a {
+            text-decoration: none;
+            cursor: pointer;
+            color: #23408f;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .contact-number p {
+            font-size : 12px;        
+        }
+
+        .post-content-product p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #000;
+            font-weight: 400;
+        }
+
+        .post-content-product-description{
+            color: #1e73be !important;
+            font-size: 18px;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 18px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 28px;
+            text-transform: uppercase;
+            font-size: 16px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .detail-icon-logo img{
+            width: 100%;
+            height: auto;
+        }
+    </style>
+}
+
+
+<div class="container">
+    <div class="row product-detail">
+        <div class="col-md-5">    
+                <div class="product-img--main" data-scale="1.6" data-image="@Model.ImageURL">
+                </div>
+        </div>
+
+        <div class="col-md-5">
+            
+            <h1 class="title-product">@Model.Title</h1>
+        
+            <div class="product-rating">
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i>
+                <span>4.7(21)</span>
+            </div>
+
+         
+            <div class="description-product">
+                <p>
+                    <span class="short-description-product">Mô tả ngắn</span> :
+                    @if (@Model.Description is null)
+                    {
+                        <span>Chưa có thông tin mô tả</span>
+                    }else
+
+                    @Model.Description
+                </p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-number">
+                        <div class="icon-box">
+                            <i class="bi bi-phone-vibrate"></i>
+                        </div>
+                        <a href="tel:0903032767">0903.032.767</a>
+                        @if (Model.IsActive)
+                        {
+                            <p class="text-success mb-3">
+                                Đang kinh doanh
+                            </p>
+                        }
+                        else
+                        {
+                            <p class="text-danger mb-3">
+                                Ngừng kinh doanh
+                            </p>
+                        }
+                    </div>                 
+                </div>
+                <div class="col-md-6 feedback-product">
+                    <button type="button" class="btn btn-sm btn-outline-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
+                            <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"></path>
+                            <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"></path>
+                        </svg>
+                        Bình luận
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.965 12.695a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2m-.8 3.108.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125M8 5.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"></path>
+                        </svg>
+                        Yêu thích
+                    </button>
+                    
+                </div>
+               
+                    <div class="shared-product">
+                        <div class="lenovo-brand ml-4">
+                            <div class="share-button mr-5" style="min-height: 40px;">
+                                <div id="fb-root"></div>
+                                <script src="~/js/shared-facebook.js"></script>
+
+                                <!-- Your share button code -->
+                                <div class="fb-share-button"
+                                     data-href="@url"
+                                     data-layout="button_count">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                
+            </div>
+        </div>
+        <div class="col-md-2 detail-icon-logo">
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 mt-3 post-content-product">
+            <h5 class="post-content-product-description fw-bold">Mô tả chi tiết :</h5>
+            @if (Model.Content != null)
+            {
+                @Html.Raw(Model.Content)
+            }
+            else
+            {
+                <p>Chưa có thông tin mô tả chi tiết</p>
+            }
+          
+        </div>
+      
+    </div>
+
+
+</div>
+
+@section Scripts{
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            var domain = document.getElementById("domain").value;
+            $('#search-list').autocomplete({
+
+                source: function (request, response) {
+                    document.getElementById("icon-load").style.display = "block";
+
+                    debugger
+                    $.ajax({
+                        url: "/Search/SearchProduct",
+                        data: { "prefix": request.term },
+                        dataType: "json",
+                        type: "POST",
+                        success: function (data) {
+                            debugger
+                            document.getElementById("icon-load").style.display = "none";
+                            console.log(data);
+                            response(data);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    })
+                },
+                appendTo: "#autocom-box",
+                select: function (e, i) {
+
+                    debugger
+
+                    $("#hfProduct").val(i.item.val);
+                    document.getElementById("submit-search").submit();
+                },
+                minLength: 1
+            }).autocomplete("instance")._renderItem = function (ul, item) {
+
+                var item = $('<div class="list_item_container d-flex flex-row bd-highlight mb-3"><div class="image-search-box"><img class="imageClass p-2 bd-highlight" src="' + item.img + '"></div><div class="label-item-search p-2 bd-highlight">' + item.name + '</div><div class="label-item-search p-2 bd-highlight">' + item.price + '</div></div>')
+                return $("<li>").append(item).appendTo(ul);
+            };
+        });
+    </script>
+    <script>
+        $('.product-img--main')
+            // tile mouse actions
+            .on('mouseover', function () {
+                $(this).children('.product-img--main__image').css({ 'transform': 'scale(' + $(this).attr('data-scale') + ')' });
+            })
+            .on('mouseout', function () {
+                $(this).children('.product-img--main__image').css({ 'transform': 'scale(1)' });
+            })
+            .on('mousemove', function (e) {
+                $(this).children('.product-img--main__image').css({ 'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 + '%' });
+            })
+            // tiles set up
+            .each(function () {
+                $(this)
+                    // add a image container
+                    .append('<div class="product-img--main__image"></div>')
+                    // set up a background image for each tile based on data-image attribute
+                    .children('.product-img--main__image').css({ 'background-image': 'url(' + $(this).attr('data-image') + ')' });
+            });
+    </script>
+}

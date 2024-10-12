@@ -1,0 +1,43 @@
+﻿
+@model MultiHoverGroups.Menu
+
+@if (Model.Categories?.Count() > 0)
+{
+    <div class="container">
+        <ul class="navbar-menu">
+
+            @{
+                await RenderCategory(Model.Categories.ToList());
+            }
+        </ul>
+    </div>
+
+}
+
+@{
+    async Task RenderCategory(IEnumerable<Category> groups)
+    {
+        
+
+        foreach (var group in groups)
+        {
+            <li>
+                <a asp-controller="home" asp-action="group" asp-route-slug="@group.Slug">@group.Name</a>
+                @if (group.CategoryChildrens?.Count >= 0)
+                {
+                   
+                    <ul>
+                        @{
+                            await RenderCategory(group.CategoryChildrens.ToList());
+                        }
+                    </ul>
+                }
+            </li>
+
+          
+        }
+
+    }
+}
+
+

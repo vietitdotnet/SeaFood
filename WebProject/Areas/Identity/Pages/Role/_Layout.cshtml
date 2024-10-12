@@ -1,0 +1,28 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout !=  null)
+    {
+        Layout = parentLayout.ToString();
+    }
+    else
+    {
+        Layout = "~/Areas/Identity/Pages/Shared/_Layout.cshtml";
+    }
+}
+
+
+<div class="">
+    <nav class="breadcrumb-item" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-page="./index">Vai trò</a></li>
+            @{
+                @RenderSection("Breadcrumb", required: false)
+            }
+        </ol>
+    </nav>
+
+    @RenderBody()
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

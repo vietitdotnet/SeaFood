@@ -1,0 +1,14 @@
+﻿
+.title-manager {
+    font-weight: 500;
+    background-color: #0026ff;
+    
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+.form-manager{
+    margin-top: 20px;
+}

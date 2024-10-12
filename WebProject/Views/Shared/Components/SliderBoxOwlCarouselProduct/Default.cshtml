@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Product>
+
+
+<div class="slider-box owl-carousel">
+    @foreach (var product in Model)
+    {
+        @await Component.InvokeAsync("CardProduct" ,product )
+    }   
+</div>
+

@@ -1,0 +1,157 @@
+﻿﻿
+@model  ProductPagin
+
+@{
+    ViewData["Title"] = "Quản lý sản phẩm";
+
+    var paging = new Pagin()
+            {
+                UrlAction = "index",
+                CurrentPage = Model.PageNumber,
+                TotalPages = Model.TotalPages,
+                UrlArea = "manager",
+               
+            };
+
+}
+
+@section Links{
+
+    <link href="~/css/search-autocomplete.css" rel="stylesheet" />
+}
+
+
+
+@section Breadcrumb{
+
+}
+
+<div class="container">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-1 mb-1">
+
+
+        <div class="p-4 bg-white dark:bg-gray-900">
+            <a asp-controller="product" asp-action="CreateProduct" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+ Tạo sản phẩm</a>
+
+        </div>
+        
+
+        <div class="p-4 bg-white dark:bg-gray-900">
+            <partial name="_SearchPartial" />
+        </div>
+    </div>
+ 
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Ảnh
+                    </th>
+
+                    <th scope="col" class="px-6 py-3">
+                        Tên
+                    </th>
+
+                    <th scope="col" class="px-6 py-3">
+                        Trạng thái
+                    </th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                @foreach (var group in Model.Products)
+                {
+
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+
+                    <td>
+
+                       @if (group.ImageURL != null)
+                        {
+                           <img style="width: auto; height: 50px;" src="@group.ImageURL" />
+                        }
+
+                    </td>
+                    <td class="px-6 py-4">
+
+                        @group.Name
+
+                    </td>
+
+
+                    <td class="px-6 py-4">
+                            @if(group.IsActive)
+                            {
+                                <span>Đang kinh doanh</span>
+                            }else
+                            {
+                                <span>Ngừng kinh doanh</span>
+                            }
+
+                    </td>
+                    
+                    <td class="px-6 py-4 text-right">
+                        <a asp-action="DetailProduct" asp-area="manager" asp-controller="Product" asp-route-id="@group.ID" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Cập nhật</a>
+                        
+                    </td>
+                </tr>
+                }
+
+        </table>
+
+       
+    </div>
+
+    @await Html.PartialAsync("_PaginPartial", paging)
+</div>
+
+
+@section Scripts{
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            var domain = document.getElementById("domain").value;
+            $('#search-list').autocomplete({
+               
+                source: function (request, response) {
+                    document.getElementById("icon-load").style.display = "block";
+
+                    debugger
+                    $.ajax({
+                        url: "/Search/SearchProduct",
+                        data: { "prefix": request.term },
+                        dataType: "json",
+                        type: "POST",
+                        success: function (data) {
+                            debugger
+                            document.getElementById("icon-load").style.display = "none";
+                            console.log(data);
+                            response(data);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    })
+                },
+                appendTo: "#autocom-box",
+                select: function (e, i) {
+
+                    debugger
+
+                    $("#hfProduct").val(i.item.val);
+                    document.getElementById("submit-search").submit();
+                },
+                minLength: 1
+            }).autocomplete("instance")._renderItem = function (ul, item) {
+
+                var item = $('<div class="list_item_container d-flex flex-row bd-highlight mb-3"><div class="image-search-box"><img class="imageClass p-2 bd-highlight" src="' + item.img + '"></div><div class="label-item-search p-2 bd-highlight">' + item.name + '</div><div class="label-item-search p-2 bd-highlight">' + item.price + '</div></div>')
+                return $("<li>").append(item).appendTo(ul);
+            };
+        });
+    </script>
+}

@@ -1,0 +1,53 @@
+﻿@inject ICategoryService _categoryService;
+
+@{
+    var categories = await _categoryService.GetMultiLevelMenuCategory();
+}
+
+@if (categories?.Count() > 0)
+{
+    <div class="navbar-menu-top">
+        <div class="container">
+            <ul class="navbar-menu">
+
+                @{
+                    await RenderCategory(categories);
+                }
+            </ul>
+        </div>
+    </div>
+    
+
+}
+
+@{
+    async Task RenderCategory(IEnumerable<Category> categories)
+    {
+
+
+        foreach (var category in categories)
+        {
+            <li>
+           
+                <a asp-controller="home" asp-action="group" asp-route-slug="@category.Slug">
+                   @category.Name 
+
+                </a>
+                @if (category.CategoryChildrens?.Count >= 0)
+                {
+
+                    <ul>
+                        @{
+                            await RenderCategory(category.CategoryChildrens.ToList());
+                        }
+                    </ul>
+                }
+                
+            </li>
+
+
+        }
+
+    }
+}
+

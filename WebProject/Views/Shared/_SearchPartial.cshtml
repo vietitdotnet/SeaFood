@@ -1,0 +1,42 @@
+﻿
+
+@inject IHttpContextAccessor _httpcontext;
+
+@{
+    var domain = string.Format("{0}://{1}", _httpcontext.HttpContext.Request.Scheme, _httpcontext.HttpContext.Request.Host.ToString());
+
+}
+
+@*Thêm  thẻ link css này vào trong Section SearchAutocomplete view cần sữ dụng để tối ưu hóa code*@
+
+@*<link href="~/css/search-autocomplete.css" rel="stylesheet" />*@
+
+
+<input type="hidden" id="domain" value="@domain" />
+
+<div class="navbar-below-menu">
+    <form id="submit-search" method="post" asp-action="searchindex">
+        <div class="search-input">
+
+            <input id="search-list" type="search" aria-label="Search" placeholder="Tên sản phẩm" name="search">
+            <input type="hidden" id="hfProduct" name="productId" />
+
+            <div id="autocom-box" class="autocom-box">
+                <!-- here list are inserted from javascript -->
+            </div>
+            <button id="icon-search" class="icon-search" type="submit">
+                <svg class="w-[47px] h-[47px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="1" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+                </svg>
+            </button>
+            <button id="icon-load" class="icon-search"><img style="width: 30px; height:30px;" src="~/icon/load.gif" /></button>
+        </div>
+
+    </form>
+</div>
+
+
+@*Thêm các thẻ JavaScript này vào trong Section Scripts view cần sữ dụng để tối ưu hóa code*@
+
+@*<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="~/js/autocomplete.js"></script>*@

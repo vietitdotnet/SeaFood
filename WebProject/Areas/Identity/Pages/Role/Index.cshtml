@@ -1,0 +1,55 @@
+﻿@page
+@model IndexModel
+@{
+    var statusMessage = TempData["StatusMessage"] as string;
+    ViewData["title"] = "Vai trò";
+   
+    ViewData["ActivePage"] = AdminNavPages.Role;
+}
+@section Breadcrumb{
+   
+}
+<div class="mt-2">  
+    <div>
+        <a class="btn btn-primary" asp-area="Identity" asp-page="./Create">+ Tạo mới</a>
+    </div>
+    <hr />
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Tên</th>
+                <th>
+                    Clamis
+                </th>
+                <th scope="col">Tác vụ</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model.roleClamis)
+            {
+                <tr>
+                    <th scope="row">@item.Name</th>
+
+                    <td>
+                        @foreach (var clami in item.Clamis)
+                        {
+                            <small>@clami</small>
+                        }
+                    </td>
+
+                    <td>
+                        <a asp-area="Identity" asp-page="./Edit" asp-route-id="@item.Id">Chỉnh sửa</a>@Html.Raw("&emsp;")
+                        <a asp-area="Identity" asp-page="./Delete" asp-route-id="@item.Id">Xóa</a>
+                    </td>
+                        
+                </tr>
+            }
+            </tbody>
+    </table>
+
+</div>
+
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

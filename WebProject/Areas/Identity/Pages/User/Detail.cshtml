@@ -1,0 +1,104 @@
+﻿@page
+@model DetailModel
+@{
+    ViewData["Title"] = "Chi tiết người dùng";
+    ViewData["ActivePage"] = AdminNavPages.User;   
+}
+
+@*@section CurentLink{
+    <li>/</li>
+    <li>
+        <a asp-page="./Detail" asp-route-id="@Model.Input.Id" asp-area="Identity">Người dùng</a>
+    </li>
+  
+}*@
+
+@section Breadcrumb{
+
+    <li class="breadcrumb-item active" aria-current="page">
+        @ViewData["Title"]
+    </li>
+
+}
+<div class="mt-2 row">
+   
+    <hr />
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Input.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Input.Id)
+        </dd>
+
+        <dt>
+            Họ và tên
+        </dt>
+
+        <dd>
+            @string.Format($"{Model.Input.LastName} {Model.Input.FirstName}")
+
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Input.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Input.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Input.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Input.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Input.Company)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Input.Company)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model =>  model.Input.Email)
+        </dt>
+
+
+        <dd>
+            @Html.DisplayFor(model =>  model.Input.Email)
+
+        </dd>
+
+
+        <dt>
+            <span><a asp-area="identity" asp-page="./AddRole" asp-route-id="@Model.Input.Id">Vai trò</a></span>
+        </dt>
+            @Html.DisplayFor(model =>  model.Input.UserRoles)
+        <dd>
+
+        <dt>
+                @Html.DisplayNameFor(model =>  model.Input.Description)
+        </dt>
+
+
+        <dd>
+                @Html.DisplayFor(model =>  model.Input.Description)
+
+        </dd>
+            
+        
+      
+    </dl>
+    <hr />
+    <div class="d-flex mb-2">
+
+        <a asp-page="./delete"  asp-route-id="@Model.Input.Id" class="btn btn-danger">Xóa</a>
+        <a  asp-page="./index" class="btn btn-secondary mx-1">Về danh sách</a>
+    </div>
+</div>
