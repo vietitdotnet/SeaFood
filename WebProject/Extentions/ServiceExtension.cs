@@ -6,6 +6,7 @@ using WebProject.Entites;
 using WebProject.FileManager;
 using WebProject.Services.CategoryService;
 using WebProject.Services.MailService;
+using WebProject.Services.OrderService;
 using WebProject.Services.ProductService;
 
 namespace WebProject.Extentions
@@ -29,6 +30,7 @@ namespace WebProject.Extentions
         public static void ConfigureServiceManager(this IServiceCollection services)
         {
             services.AddSingleton<IEmailSender, EmailSender>();
+            services.AddScoped<IOrderService, OrderService>();
             services.AddSingleton<IFileService, FileService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();

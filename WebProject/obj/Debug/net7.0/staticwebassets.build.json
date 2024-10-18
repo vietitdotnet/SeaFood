@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ov5t6ExesZ4hSY63wfs0p4LUC4UtIcFZKgJ7tYYsbK0=",
+  "Hash": "3sXt00IHg6MLaiEpo7PG4HleYkTQNROmczbqVj1V6n0=",
   "Source": "WebProject",
   "BasePath": "_content/WebProject",
   "Mode": "Default",
@@ -1562,6 +1562,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\ImageManager\\ProductImg\\240747735_42bdaecb.webp"
+    },
+    {
+      "Identity": "D:\\C#\\WebProject\\webproject\\wwwroot\\ImageManager\\ProductImg\\241315239_ba99e26b.webp",
+      "SourceId": "WebProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\WebProject\\webproject\\wwwroot\\",
+      "BasePath": "_content/WebProject",
+      "RelativePath": "ImageManager/ProductImg/241315239_ba99e26b.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ImageManager\\ProductImg\\241315239_ba99e26b.webp"
     },
     {
       "Identity": "D:\\C#\\WebProject\\webproject\\wwwroot\\ImageManager\\ProductImg\\242102886_75de25fe.webp",

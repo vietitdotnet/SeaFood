@@ -1,127 +1,84 @@
-﻿.slider-box {
+﻿/*.cards {
     display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    -webkit-transition: all 0.2s;
+    justify-content: left;
+    flex-wrap: wrap;
+}*/
+
+.slider-box {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
 }
 
 .card {
-    max-width: 22rem;
-    min-width: 20rem;
-    overflow: hidden;
-    margin-left: .8rem;
-    margin-right: .8rem;
-    border: #eee solid 1px;
-   
-    background-color: white
+    width: 320px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.08);
+    transition: 0.3s ease-in-out;
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 10px 2px rgba(0, 0, 0, .06);
-}
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+    }
 
-.profile-pic {
+    .card .top-card {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+    }
+
+.top-card img {
+    height: 100%;
     width: 100%;
-    height: 15rem;
-    background-repeat: no-repeat;
-    transition: border-radius .3s;
-    background-position: center -3rem;
+    object-fit: cover;
+    transition: 0.7s ease;
 }
 
-.card .header {
-    width: 100%;
-    height: 15rem;
-   
+.card:hover .top-card img {
+    transform: scale(1.1);
 }
 
-.card-title {
-    padding-left: 20px;
-}
-
-.profession {
+.bottom-card {
     text-align: center;
+    position: relative;
+    padding: 10px;
+    padding-top: 30px;
 }
 
-
-.card .details h2 {
-    font-size: 14px;
-    color: #258cfb;
-    margin-top: .4rem;
-    letter-spacing: 1px;
+.top-btn {
+    padding: 5px;
+    background-color: #23C4ED;
+    color: #fff;
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 10px;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.card .details .profession {
-    margin-bottom: .4rem;
-    color: rgb(0 0 0 / 35%);
+.bottom-card p {
+    margin-top: 5px;
+    color: #999;
+    font-size: 13px;
 }
 
-.card .details .social {
-    margin-top: .5rem;
+.price {
+    font-size: 30px;
 }
 
-.social {
-    text-align: center;
-    padding-bottom: 10px;
+.bottom-card .address {
+    text-decoration: none;
 }
-
-
-.card .details .social i {
-    cursor: pointer;
-    font-size: 1.4rem;
-    margin-right: 1rem;
-    transition: color .3s;
-    color: rgb(0 0 0 / 55%);
-}
-
-.describe {
-    margin: 0px 20px 0px 20px;
-    text-align: justify;
-}
-
-.card .details .social i:hover {
-    color: rgb(0 0 0 / 85%);
-}
-
-.card .footer {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.card .footer div {
-    margin-top: 1rem;
-    text-align: center;
-    margin-left: 1.2rem;
-    margin-bottom: 1.2rem;
-    padding-right: 1.2rem;
-    border-right: 1px solid rgb(0 0 0 / 40%);
-}
-
-.card .footer div:first-child {
-    margin-left: 1.5rem;
-    padding-right: 1.5rem;
-}
-
-.card .footer div:last-child {
-    border-right: 0;
-    padding-right: 1.2rem;
-}
-
-.card .footer div .count {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: rgb(0 0 0 / 80%);
-}
-
 .owl-carousel .owl-stage-outer {
     position: relative;
     overflow: hidden;
-    min-height: 28rem;
+    min-height: 22rem;
     padding-top: 1rem;
     -webkit-transform: translate3d(0, 0, 0);
+
+
 }
 
 .owl-nav {
@@ -130,17 +87,17 @@
 
 .owl-dots {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     margin-top: 0px;
 }
 
 .owl-dots .owl-dot {
-    width: 1.8rem;
+    width: 0.8rem;
     height: 0.8rem;
     margin-left: 0.5rem;
     border-radius: 50px;
     margin-right: 0.5rem;
-    border: 2px solid #258cfb !important;
+    border: 1px solid #258cfb !important;
 }
 
 .owl-dots .owl-dot.active {
@@ -166,83 +123,56 @@
     align-items: center;
     justify-content: center;
     height: 190px;
-    max-width: 22rem;
-    min-width: 20rem;
+    
 }
 /*max-width: 22rem;
 min-width: 20rem;*/
 
 @media (max-width: 600px) {
     .card {
-        max-width: 16.5rem;
-        min-width: 15.5rem;
+         width : 250px;
+       
     }
 
     .owl-dots {
         margin-top: 20px;
     }
 
-    .profile-pic {
-        max-width: 22rem;
-        min-width: 10rem;
-    }
-
-    .card .details h2 {
-        font-size: 12px;
-        color: #258cfb;
-        margin-top: .4rem;
-        letter-spacing: 1px;
-    }
 }
 
 @media (max-width: 450px) {
     .card {
-        max-width: 16.5rem;
-        min-width: 14.5rem;
+        width: 195px;
     }
 
     .owl-dots {
         margin-top: 10px;
     }
-
-    .profile-pic {
-        max-width: 16.5rem;
-        min-width: 14rem;
+    .top-btn {
+        padding: 2px;
+       
+        font-size: 8px;
+     
     }
+
+
+    
 }
 
 @media (max-width: 395px) {
     .card {
-        max-width: 13.8rem;
-        min-width: 12.8rem;
+        width: 180px;
     }
 
-    .owl-dots {
-        margin-top: 10px;
-    }
+   
 
-    .profile-pic {
-        max-width: 13.8rem;
-        min-width: 12.8rem;
-    }
-    /*
-    .describe {
-        display: none;
-    }*/
 }
 
 @media (max-width: 375px) {
     .card {
-        max-width: 22rem;
-        min-width: 18.8rem;
+        width: 190px;
     }
 
-    .owl-dots {
-        margin-top: 10px;
-    }
-
-    .profile-pic {
-        max-width: 22rem;
-        min-width: 18.8rem;
-    }
+   
+    
 }

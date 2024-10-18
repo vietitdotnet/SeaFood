@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Product>
+
+<section class="featured">
+    <div class="container-card">
+        @*  <h2 class="title-service">Feature Listing</h2>
+        <p class="featured-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. A accusamus perferendis dolorem architecto saepe vero ad enim ratione est alias!</p>
+        *@
+        <div class="cards">
+            @foreach (var product in Model)
+            {
+                @await Component.InvokeAsync("CardProduct" ,product )
+            }
+        </div>
+     </div>
+</section>

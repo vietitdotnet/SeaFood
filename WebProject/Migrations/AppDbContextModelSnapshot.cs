@@ -312,6 +312,76 @@ namespace WebProject.Migrations
                     b.ToTable("Commodities");
                 });
 
+            modelBuilder.Entity("WebProject.Entites.Customer", b =>
+                {
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("PhoneNunber")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Customers");
+                });
+
+            modelBuilder.Entity("WebProject.Entites.Order", b =>
+                {
+                    b.Property<string>("ID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CustomerID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(350)
+                        .HasColumnType("nvarchar(350)");
+
+                    b.Property<bool>("IsApproval")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsRecycleBin")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ProductID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("SpecificationID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CustomerID");
+
+                    b.HasIndex("ProductID");
+
+                    b.HasIndex("SpecificationID");
+
+                    b.ToTable("Orders");
+                });
+
             modelBuilder.Entity("WebProject.Entites.Product", b =>
                 {
                     b.Property<string>("ID")
@@ -326,7 +396,7 @@ namespace WebProject.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("CostPrice")
+                    b.Property<decimal?>("CostPrice")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
@@ -356,7 +426,8 @@ namespace WebProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal?>("Price")
+                        .IsRequired()
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
@@ -394,6 +465,31 @@ namespace WebProject.Migrations
                     b.HasIndex("SupplierID");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("WebProject.Entites.Specification", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ProductID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Size")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("Specifications");
                 });
 
             modelBuilder.Entity("WebProject.Entites.Supplier", b =>
@@ -500,6 +596,30 @@ namespace WebProject.Migrations
                     b.Navigation("ParentCategory");
                 });
 
+            modelBuilder.Entity("WebProject.Entites.Order", b =>
+                {
+                    b.HasOne("WebProject.Entites.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebProject.Entites.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebProject.Entites.Specification", null)
+                        .WithMany()
+                        .HasForeignKey("SpecificationID")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("WebProject.Entites.Product", b =>
                 {
                     b.HasOne("WebProject.Entites.Category", "Category")
@@ -521,6 +641,15 @@ namespace WebProject.Migrations
                     b.Navigation("Supplier");
                 });
 
+            modelBuilder.Entity("WebProject.Entites.Specification", b =>
+                {
+                    b.HasOne("WebProject.Entites.Product", "Product")
+                        .WithMany("Specifications")
+                        .HasForeignKey("ProductID");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("WebProject.Entites.Category", b =>
                 {
                     b.Navigation("CategoryChildrens");
@@ -531,6 +660,11 @@ namespace WebProject.Migrations
             modelBuilder.Entity("WebProject.Entites.Commodity", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("WebProject.Entites.Product", b =>
+                {
+                    b.Navigation("Specifications");
                 });
 
             modelBuilder.Entity("WebProject.Entites.Supplier", b =>

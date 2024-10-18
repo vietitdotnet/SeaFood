@@ -1,7 +1,7 @@
 ﻿@model ProductController.InputDetail
 @{
     ViewData["Title"] = "Chi tiết sản phẩm";
-
+    var format = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
   
 }
 
@@ -60,7 +60,7 @@
             <dd>
                 @Html.DisplayFor(model => model.Product.Title)
             </dd>
-            <dt class="font-medium text-gray-900 dark:text-white mt-3">
+            @*<dt class="font-medium text-gray-900 dark:text-white mt-3">
                 @Html.DisplayNameFor(model => model.Product.SKU)
             </dt>
 
@@ -74,23 +74,46 @@
                         Chưa có
                     </span>
                 }
-            </dd>
+            </dd>*@
 
-
-            <dt class="font-medium text-gray-900 dark:text-white mt-3">
+            @*<dt class="font-medium text-gray-900 dark:text-white mt-3">
                 @Html.DisplayNameFor(model => model.Product.Price)
             </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.Product.Price)
-            </dd>
+            </dd>*@
 
             <dt class="font-medium text-gray-900 dark:text-white mt-3">
-                @Html.DisplayNameFor(model => model.Product.CostPrice)
+
+                <a asp-controller="Product" asp-action="AddSize" asp-route-id="@Model.Product.ID" class="inline-flex items-center font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                        Giá bán
+                        <svg class="w-4 h-4 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </a>
+                
+                
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Product.CostPrice)
+                @if (Model.Product.Specifications?.Count() > 0)
+                {
+                    <ul>
+                        @foreach (var item in Model.Product.Specifications)
+                        {
+                            <li>
+
+                                <a asp-action="RemoveSize" asp-controller="product" asp-route-id="@item.ID"><span>Kích thước @item.Size con/kí giá @String.Format(format ,"{0:c0}", item.Price ) </span></a>
+
+                            </li>
+                        }
+                       
+                    </ul>
+                }else
+                {
+                    <span>Giá thương lượng</span>
+                }
             </dd>
 
             <dt class="font-medium text-gray-900 dark:text-white mt-3">
@@ -117,7 +140,7 @@
     </div>
     <div>
         <dl>
-           
+
             <dt class="font-medium text-gray-900 dark:text-white mt-3">
                 @Html.DisplayNameFor(model => model.Product.IsFeatured)
             </dt>
@@ -148,7 +171,7 @@
             </dd>
 
 
-            <dt class="font-medium text-gray-900 dark:text-white mt-3">
+           @* <dt class="font-medium text-gray-900 dark:text-white mt-3">
                 @Html.DisplayNameFor(model => model.Product.StockQuantity)
             </dt>
 
@@ -161,7 +184,7 @@
 
             <dd>
                 @Html.DisplayFor(model => model.Product.MinimumStock)
-            </dd>
+            </dd>*@
 
             <dt class="font-medium text-gray-900 dark:text-white mt-3">
                 @Html.DisplayNameFor(model => model.Product.CreatedDate)

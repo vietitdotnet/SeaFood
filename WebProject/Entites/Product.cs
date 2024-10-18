@@ -42,12 +42,12 @@ namespace WebProject.Entites
         [Display(Name = "Giá bán")]
         [Range(0, int.MaxValue, ErrorMessage = "{0} phải lớn hơn hoặc bằng 0")]
         [Required(ErrorMessage = "{0} không được bỏ trống.")]
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
 
         [Display(Name = "Giá vốn")]
         [Range(0, int.MaxValue, ErrorMessage = "{0} phải lớn hơn hoặc bằng 0")]
-        [Required(ErrorMessage = "{0} không được bỏ trống.")]
-        public decimal CostPrice { get; set; }
+       
+        public decimal? CostPrice { get; set; }
 
 
         [Range(0, 100, ErrorMessage = "{0} khoảng từ 0% đến 100%")]
@@ -91,6 +91,7 @@ namespace WebProject.Entites
         [Display(Name = "Ngày cập nhật")]
         public DateTime UpdatedDate { get; set; }
 
+       
         [Display(Name = "Danh mục")]
         public string CategoryID { get; set; }
 
@@ -112,6 +113,8 @@ namespace WebProject.Entites
 
         [ForeignKey("CommodityID")]
         public virtual Commodity Commodity { get; set; }
+
+        public virtual ICollection<Specification> Specifications { get; set; }
 
    
     }

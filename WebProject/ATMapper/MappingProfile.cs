@@ -13,6 +13,10 @@ namespace WebProject.ATMapper
             CreateMap<ProductDto, Product>();
             CreateMap<Product, ProductDto>();
 
+            CreateMap<Specification, SpecificationCreateDto>();
+            CreateMap<SpecificationCreateDto, Specification>();
+            CreateMap<Product, ProductDto>();
+
             CreateMap<ProductCreateDTO, Product>();
             CreateMap<Product, ProductCreateDTO>();
 

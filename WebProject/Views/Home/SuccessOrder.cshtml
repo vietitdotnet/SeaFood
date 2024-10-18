@@ -1,0 +1,92 @@
+﻿@model Order
+@{
+
+}
+@{
+    ViewData["Title"] = "THông báo đặt hàng";
+}
+
+@section Links{
+
+    <link href="~/css/search-autocomplete.css" rel="stylesheet" />
+    <link href="~/css/hotline.css" rel="stylesheet" />
+
+}
+
+
+<div class="alert alert-success" role="alert">
+    
+    <h4 class="alert-heading">Đặt hàng thành công !</h4>
+     
+   
+    <p>
+        <ul>
+            <li>
+                Mã đơn hàng : @Model.ID                
+            </li>
+            <li>
+                Khách hàng : @Model.Customer?.Name
+            </li>
+            <li>
+                Tên đơn hàng : @Model.Product?.Title
+            </li>
+        </ul>
+    </p>
+    <p>
+       Quý khách vui lòng đợi trong vài phút để được nhân viên liên hệ tư vấn , nếu phản hồi quá lâu xin quý khách liên hệ tới host phone bên dưới , trân trọng cảm ơn quý khách hàng !
+    </p>
+    <hr>
+    <p class="mb-0">
+
+        <a asp-controller="home" asp-action="index" class="btn btn-primary">Về trang chủ</a>
+    </p>
+</div>
+
+
+@section Scripts{
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            var domain = document.getElementById("domain").value;
+            $('#search-list').autocomplete({
+
+                source: function (request, response) {
+                    document.getElementById("icon-load").style.display = "block";
+
+                    debugger
+                    $.ajax({
+                        url: "/Search/SearchProduct",
+                        data: { "prefix": request.term },
+                        dataType: "json",
+                        type: "POST",
+                        success: function (data) {
+                            debugger
+                            document.getElementById("icon-load").style.display = "none";
+                            console.log(data);
+                            response(data);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    })
+                },
+                appendTo: "#autocom-box",
+                select: function (e, i) {
+
+                    debugger
+
+                    $("#hfProduct").val(i.item.val);
+                    document.getElementById("submit-search").submit();
+                },
+                minLength: 1
+            }).autocomplete("instance")._renderItem = function (ul, item) {
+
+                var item = $('<div class="list_item_container d-flex flex-row bd-highlight mb-3"><div class="image-search-box"><img class="imageClass p-2 bd-highlight" src="' + item.img + '"></div><div class="label-item-search p-2 bd-highlight">' + item.name + '</div><div class="label-item-search p-2 bd-highlight">' + item.price + '</div></div>')
+                return $("<li>").append(item).appendTo(ul);
+            };
+        });
+    </script>
+}

@@ -24,6 +24,7 @@ using WebProject.Paging;
 using WebProject.Services.CategoryService;
 using WebProject.Services.ProductService;
 using System.Security.Policy;
+using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 
 namespace WebProject.Areas.Manager.Controllers
 {
@@ -124,18 +125,7 @@ namespace WebProject.Areas.Manager.Controllers
 
                 return View("CreateProduct", productCreate);
             }
-            var isDuplicateCode = await IsCodeDuplicateCreate(productCreate.SKU);
-
-            if (!isDuplicateCode)
-            {
-                await GetDataSeleteCategory();
-                
-
-                ModelState.AddModelError(string.Empty, $"Lỗi trùng mã số quản lý kho  -{productCreate.SKU}- đã tồn tại");
-
-                return View("CreateProduct", productCreate);
-            }
-
+       
             try
             {
                 var product = ObjectMapper.Mapper.Map<Product>(productCreate);
@@ -179,6 +169,7 @@ namespace WebProject.Areas.Manager.Controllers
             input.Product = await _context
                 .Products
                 .Include(p => p.Category)
+                .Include(p=> p.Specifications)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(p => p.ID == id);
 
@@ -310,21 +301,17 @@ namespace WebProject.Areas.Manager.Controllers
             try
             {
                 product.Name = productUpdate.Name;
-                product.SKU = product.SKU;
-                product.Discount = productUpdate.Discount;
 
                 product.Description = productUpdate.Description;
-                product.CostPrice = productUpdate.CostPrice;
-                productUpdate.Price = productUpdate.Price;
+
                 product.Title = productUpdate.Title;
 
                 product.CategoryID = productUpdate.CategoryID;
 
                 product.Slug = productUpdate.Slug;
-                product.MinimumStock = productUpdate.MinimumStock;
-
-                product.StockQuantity = productUpdate.StockQuantity;
+              
                 product.Content = productUpdate.Content;
+               
                 product.IsActive = productUpdate.IsActive;
 
                 product.IsFeatured = productUpdate.IsFeatured;
@@ -411,5 +398,109 @@ namespace WebProject.Areas.Manager.Controllers
 
             return View("DetailProduct", input);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> AddSize([FromRoute] string id)
+        {
+            var product = await _context.Products.FindAsync(id);
+
+            if (product is null)
+            {
+                return NotFound("Không tìm thấy sản phẩm");
+            }
+
+            var size = new SpecificationCreateDto();
+
+            size.ProductID = product.ID;
+
+            size.ProductName = product.Name;
+
+            return View(size);
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> AddSize([FromForm] SpecificationCreateDto specificationCreateDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(specificationCreateDto);
+            }
+
+            var product = _context.Products.Find(specificationCreateDto.ProductID);
+
+            if (product is null)
+            {
+                return NotFound("Lỗi không tìm thấy sản phẩm");
+            }
+
+            var specification = new Specification();
+
+            try
+            {
+                specification.ProductID = product.ID;
+                specification.Size = specificationCreateDto.Size;
+                specification.Price = specificationCreateDto.Price;
+
+                await _context.Specifications.AddAsync(specification);
+
+                await _context.SaveChangesAsync();
+
+                StatusMessage = $"Thêm thành công Size Cho Sản Phẩm --{product.Name}-- ";
+
+                return RedirectToAction("DetailProduct", new { id = product.ID });
+
+            }
+            catch (Exception)
+            {
+                return NotFound("lỗi thử lại liên hệ admin");
+            }
+        }
+
+        [HttpGet]
+        public async Task <IActionResult> RemoveSize([FromRoute] int id)
+        {
+            var sizeProduct = await _context.Specifications.FindAsync(id);
+
+            if (sizeProduct is null)
+            {
+                return NotFound("Không tìm thấy size sủa sản phẩm");
+            }
+
+            var sizeProductRemove = ObjectMapper.Mapper.Map<SpecificationCreateDto>(sizeProduct);
+
+            return View(sizeProductRemove);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RemoveSize([FromForm] SpecificationCreateDto specificationCreateDto)
+        {
+            var sizeProduct = await _context.Specifications.FindAsync(specificationCreateDto.ID);
+
+            if (sizeProduct is null)
+            {
+                return NotFound("Không tìm thấy size sủa sản phẩm");
+            }
+
+            try
+            {
+                sizeProduct.ProductID = null;
+
+                await _context.SaveChangesAsync();
+
+                StatusMessage = $"Xóa Size thành công ";
+
+                return RedirectToAction("DetailProduct", new { id = specificationCreateDto.ProductID });
+            }
+            catch (Exception)
+            {
+
+                return NotFound("Lỗi liên hệ admin");
+            }
+
+            
+        }
+
+
     }
 }

@@ -16,6 +16,8 @@ namespace WebProject.Dto
 
         public decimal Price { get; set; }
 
+        public bool IsSize { get; set; }
+
         public decimal CostPrice { get; set; }
 
         public string ImageURL { get; set; }

@@ -2,7 +2,7 @@
     
     position: fixed;
     left: -70px;
-
+ 
     visibility: hidden;
     background-color: transparent;
     width: 200px;
@@ -26,6 +26,7 @@
 
     .phonering-alo-phone.phonering-alo-hover, .phonering-alo-phone:hover {
         opacity: 1
+        
     }
 
 .phonering-alo-ph-circle {

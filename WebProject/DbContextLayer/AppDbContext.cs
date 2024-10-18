@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Emit;
+using System.Xml;
 using WebProject.Entites;
 
 namespace WebProject.DbContextLayer
@@ -24,6 +25,11 @@ namespace WebProject.DbContextLayer
 
         public DbSet<Commodity> Commodities { get; set; }
 
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<Specification> Specifications { get; set; }
+
+        public DbSet<Customer> Customers { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
@@ -55,6 +61,10 @@ namespace WebProject.DbContextLayer
             .Property(p => p.Rating)
             .HasPrecision(18, 2);  // Tương tự cho trường Price
 
+            builder.Entity<Specification>()
+           .Property(p => p.Price)
+           .HasPrecision(18, 2);  // Tương tự cho trường Price
+
             builder.Entity<Category>(entity =>
             {
                 entity.HasIndex(p => p.Slug).IsUnique();
@@ -69,6 +79,12 @@ namespace WebProject.DbContextLayer
             {
                 entity.HasIndex(p => p.Slug).IsUnique();
             });
+
+            builder.Entity<Order>()
+            .HasOne<Specification>()
+            .WithMany()
+            .HasForeignKey(e => e.SpecificationID)
+            .OnDelete(DeleteBehavior.Restrict); // Ngăn việc xóa khóa ngoại
         }
 
 

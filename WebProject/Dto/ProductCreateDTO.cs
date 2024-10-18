@@ -17,12 +17,6 @@ namespace WebProject.Dto
         public string ID { get; set; }
 
 
-
-        [StringLength(50, ErrorMessage = "{0} có độ dài tối đa {1} kí tự")]
-        [NumberCodeConfirmed]
-        [Display(Name = "Mã vạch")]
-        public string SKU { get; set; } //Mã số để quản lý trong kho
-
         [Display(Name = "Tên")]
         [Required(ErrorMessage = "{0} không được bỏ trống.")]
         public string Name { get; set; }
@@ -42,29 +36,6 @@ namespace WebProject.Dto
         [Range(0, int.MaxValue, ErrorMessage = "{0} phải lớn hơn hoặc bằng 0")]
         [Required(ErrorMessage = "{0} không được bỏ trống.")]
         public decimal Price { get; set; }
-
-        [Display(Name = "Giá vốn")]
-        [Range(0, int.MaxValue, ErrorMessage = "{0} phải lớn hơn hoặc bằng 0")]
-        [Required(ErrorMessage = "{0} không được bỏ trống.")]
-        public decimal CostPrice { get; set; }
-
-
-        [Range(0, 100, ErrorMessage = "{0} khoảng từ 0% đến 100%")]
-        [Required(ErrorMessage = "{0} không được bỏ trống.")]
-        [Display(Name = "Giảm giá (%)")]
-        public int Discount { get; set; }
-
-
-        [Display(Name = "Số lượng hàng tồn kho")]
-        [Range(0, int.MaxValue, ErrorMessage = "Giá trị phải lớn hơn hoặc bằng 0")]
-        [Required(ErrorMessage = "{0} không được bỏ trống.")]
-        public int StockQuantity { get; set; }
-
-
-        [Display(Name = "Số lượng hàng tồn kho tối thiểu ")]
-        [Range(0, int.MaxValue, ErrorMessage = "Giá trị phải lớn hơn hoặc bằng 0")]
-        [Required(ErrorMessage = "{0} không được bỏ trống.")]
-        public int MinimumStock { get; set; }
 
 
         [Display(Name = "Ảnh")]
@@ -87,6 +58,9 @@ namespace WebProject.Dto
         
         public string Content { get; set; }
 
+        [Display(Name = "Kích thước")]
+        public bool IsSize { get; set; }
+
         [Display(Name = "Ngày tạo")]
         public DateTime CreatedDate { get; set; }
 
@@ -97,8 +71,7 @@ namespace WebProject.Dto
         [Display(Name = "Danh mục")]
         public string CategoryID { get; set; }
 
-        [Display(Name = "Nhà cung cấp")]
-        public string SupplierID { get; set; }
+      
 
     }
 }

@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Manager\Models\" />
     <Folder Include="wwwroot\ImageManager\ProductImg\" />
   </ItemGroup>
 
