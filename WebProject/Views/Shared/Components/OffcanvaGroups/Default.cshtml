@@ -1,0 +1,109 @@
+﻿@using WebProject.Views.Shared.Components.OffcanvaGroups;
+@model OffcanvaGroups.Menu
+
+@{
+
+    var listSerialUrl = Model.ListSerialUrl ?? new List<string>();
+
+    int i = 0;
+}
+<div class="offcanvas offcanvas-start box-nemu-category-group" tabindex="-1" id="menuGroups" aria-labelledby="menuGroupsLabel">
+    <div class="offcanvas-header">
+        <div class="menu-title-content">
+
+            <h6><i class="bi bi-columns-gap"></i> DANH MỤC</h6>
+
+        </div>
+        <button style="position: absolute; top: 20px; right: 15px;" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="menu-group">
+            @{
+
+                await RenderGroup(Model.Categories.ToList(), i);
+            }
+
+        </ul>
+    </div>
+</div>
+
+@{
+    async Task RenderGroup(IEnumerable<Category> groups, int size)
+    {
+
+        foreach (var group in groups)
+        {
+            string activeCollapse = "";
+            string activelink = "";
+            var myShow = listSerialUrl.Contains(group?.Slug) ? "myshow" : null;
+
+            var parentProduct = "";
+
+            var myActive = listSerialUrl.Contains(group?.Slug) ? "myactive" : null;
+
+            @if (string.IsNullOrEmpty(Model.CurentSlug) && i == 0)
+            {
+                myShow = "myshow";
+                myActive = "myactive";
+            }
+            @if (!string.IsNullOrEmpty(Model.CurentSlug))
+            {
+                activeCollapse = Model.CurentSlug.Equals(group?.Slug) ? "active-collapse" : null;
+                activelink = Model.CurentSlug.Equals(group?.Slug) ? "active-link" : null;
+            }
+
+            @if (size == 0)
+            {
+                parentProduct = "parent-product";
+            }
+
+            string fontsize = "parent-size-text-post";
+
+            if (size > 0)
+            {
+                fontsize = "child-size-text-post";
+            }
+
+            <li class="@parentProduct d-flex bd-highlight">
+
+                @if (group.CategoryChildrens?.Count > 0)
+                {
+
+                    <a class="tree-icon-mycollapse flex-shrink-1 bd-highlight @fontsize" onclick="showDetails(this)">
+
+                        <span class=" @myActive @activeCollapse" aria-hidden="true">
+
+                        </span>
+                    </a>
+
+                }
+                else
+                {
+                    <span class="tree-icon-mycollapse flex-shrink-1 bd-highlight">
+
+                    </span>
+
+                }
+                <span class="categorysidebar-title-post w-100 bd-highlight">
+                    <a class="@fontsize @activelink" asp-controller="home" asp-action="group" asp-route-slug="@group.Slug">@group.Name</a>
+                </span>
+
+            </li>
+
+            if (group.CategoryChildrens?.Count >= 0)
+            {
+                <ul class="mycollapse categorysidebar-menu-post-child @myShow">
+                    @{
+
+                        await RenderGroup(group.CategoryChildrens, size + 1);
+                    }
+
+                </ul>
+            }
+
+            i++;
+        }
+    }
+}
+
+<script src="~/js/collapse-show.js"></script>

@@ -1,0 +1,70 @@
+﻿@model HomeController.InputGroupModel
+
+@{
+    var key = ViewData["key"] as string;
+    ViewData["Title"] = $"{Model.CurentCategory.Name} - Cá Giống Đại Dương";
+}
+
+
+@section Links{
+    <link href="~/css/search-autocomplete.css" rel="stylesheet" />
+    <link href="~/css/gird-card-product.css" rel="stylesheet" />
+    <link href="~/css/hotline.css" rel="stylesheet" />
+    <link href="~/css/card-carousel-slider.css" rel="stylesheet" />
+    <link href="~/css/aside-outstanding-product.css" rel="stylesheet" />
+     
+}
+
+@section breadcrumb{
+
+    <li class="breadcrumb-item active" aria-current="page">@Model.CurentCategory.Name</li>
+}
+
+
+
+<div class="row">
+
+    <div class="col-md-9">
+
+        <div class="title-category mt-3 mb-2">
+            <h6><i class="bi bi-award"></i> @Model.CurentCategory.Name</h6>
+        </div>
+        @if (Model.CurentCategory.Products?.Count() > 0)
+        {
+            @await Component.InvokeAsync("GirdCardProduct" ,Model.CurentCategory.Products)
+        }
+    </div>
+    
+    <div class="col-md-3" >
+        <partial name="_EndowPartial" />
+
+        @await Component.InvokeAsync("OutstandingProduct" , Model.CurentCategory.Products)
+    </div>
+</div>
+
+@if (Model.RelateProducts?.Count >0)
+{
+    <div class="curent-category">
+        <div class="title-category mt-3">
+            <h6><i class="bi bi-award text-primary"></i> Giống liên quan</h6>
+        </div>
+
+
+        @await Component.InvokeAsync("SliderBoxOwlCarouselProduct" ,Model.RelateProducts)
+    </div>
+
+}
+
+@section OffcanvaGroups{
+    @await Component.InvokeAsync("OffcanvaGroups", Model.CurentCategory.Slug)
+}
+
+<partial name="_HotLinePartial" />
+
+
+@section Scripts{
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/js/search-index.js"></script>
+
+}

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Product>
+@{
+
+}
+
+
+
+<aside class="woocommerce widget_products">
+    <span class="widget-title shop-sidebar">GIỐNG BÁN CHẠY</span><div class="is-divider small"></div>
+    <ul class="product_list_widget">
+        @foreach (var item in Model)
+        {
+            <li>
+
+                <a asp-action="detail" asp-controller="home" asp-route-slug="@item.Slug">
+                    <p class=" d-flex bd-highlight">
+                        <img src="@item.ImageURL">
+                        <span class="product-title-outstanding">@item.Title</span>
+                    </p>
+                   
+                </a>
+
+            </li>
+        }
+    
+    </ul>
+</aside>

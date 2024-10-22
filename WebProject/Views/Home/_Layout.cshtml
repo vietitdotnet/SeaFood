@@ -19,39 +19,46 @@
     @RenderSection("Links", required: false)
 }
 
+
+<div class="navbar-search-box">
+    <nav class="pt-2 pb-2 navbar-search container">
+        <div class="row">
+            <div class="col-md-7 navbar-bottom ">
+                <ul class="d-flex flex-row navbar-nav me-auto mb-2 mb-lg-0">
+                    <li>
+                        <a class="btn btn-outline-primary" data-bs-toggle="offcanvas" href="#menuGroups" role="button" aria-controls="menuGroups">
+                            <i class="bi bi-menu-up"></i> Danh mục
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-md-5">
+                <partial name="_SearchPartial" />
+            </div>
+        </div>
+    </nav>
+</div>
 <partial name="_MultiLevelMenuCategory" />
 
-<nav class="pt-2 pb-2 navbar-search container">
-    <div class="row">
-        <div class="col-md-7 navbar-bottom ">
-            <ul class="d-flex flex-row navbar-nav me-auto mb-2 mb-lg-0">
-                <li>
-                    <a class="btn btn-outline-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                        <i class="bi bi-menu-up"></i>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link ms-3" aria-current="page" href="#">Bán chạy</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link ms-3" href="#">Xem nhiều nhất</a>
-                </li>
-            </ul>
-
-        </div>
-
-        <div class="col-md-5">
-            <partial name="_SearchPartial" />
-        </div>
-    </div>
-    
+<nav aria-label="breadcrumb" class="container">
+    <ol class="breadcrumb d-flex justify-content-center">
+        <li class="breadcrumb-item"><a asp-action="index" asp-controller="home"><i class="bi bi-house-door"></i> Trang chủ</a></li>
+        @RenderSection("breadcrumb", required: false)
+    </ol>
 </nav>
 
+
+@RenderSection("OffcanvaGroups", required: false)
+
+
+
 <div class="container">
-    
+ 
     @RenderBody()
 </div>
+
+
 
 @section Scripts {
     @RenderSection("Scripts", required: false)

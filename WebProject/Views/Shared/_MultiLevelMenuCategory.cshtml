@@ -23,8 +23,6 @@
 @{
     async Task RenderCategory(IEnumerable<Category> categories)
     {
-
-
         foreach (var category in categories)
         {
             <li>
@@ -35,7 +33,6 @@
                 </a>
                 @if (category.CategoryChildrens?.Count >= 0)
                 {
-
                     <ul>
                         @{
                             await RenderCategory(category.CategoryChildrens.ToList());
@@ -44,8 +41,6 @@
                 }
                 
             </li>
-
-
         }
 
     }

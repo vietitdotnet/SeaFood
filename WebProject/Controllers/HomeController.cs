@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.Build.Evaluation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Identity.Client;
 using Microsoft.SqlServer.Server;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
 using System.Text.RegularExpressions;
@@ -17,6 +19,7 @@ using WebProject.Models;
 using WebProject.Paging;
 using WebProject.Services.CategoryService;
 using WebProject.Services.OrderService;
+using WebProject.Services.ProductService;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace WebProject.Controllers
@@ -25,19 +28,21 @@ namespace WebProject.Controllers
     {
         private readonly ICategoryService _categoryService;
         private readonly IFileService _fileService;
-
+        private readonly IProductService _productService;
         private readonly IOrderService _orderService;
         public HomeController(ILogger<HomeController> logger,
                             AppDbContext context,
                              IHttpContextAccessor httpcontext,
                             ICategoryService categoryService,
                             IFileService fileService,
+                            IProductService productService,
                             IOrderService orderService
             ) : base(logger, context, httpcontext)
         {
             _categoryService = categoryService;
             _fileService = fileService;
             _orderService = orderService;
+            _productService = productService;
         }
 
         public class ViewDataModel
@@ -87,14 +92,12 @@ namespace WebProject.Controllers
                     {
                         product.ImageURL = _fileService.HttpContextAccessorPathImgSrcIndex(ProductImg.GetProductImg(), product.ImageURL);
                     }
-                    
-
+                   
                 }
 
                 listSerialUrl.Clear();
             }
 
-          
             return View(categories);
 
         }
@@ -110,33 +113,29 @@ namespace WebProject.Controllers
         }
 
         [HttpGet]
-        [Route("loai-giong/{slug?}")]
+        [Route("san-pham/{slug}")]
         public async Task<IActionResult> Detail([FromRoute] string slug)
         {
-            var product = await _context .Products.Where(x=> x.Slug == slug).FirstOrDefaultAsync();
+            var product = await _context.Products.Where(x=> x.Slug == slug).Include(x => x.Category).FirstOrDefaultAsync();
 
             if (product == null)
             {
                 return NotFound("Không tìm thấy loại giống cá");
             }
 
-             var listSerialUrl = new List<string>();
+            var listSerialUrl = new List<string>();
 
-            var productModal = new DetailProductModal();
-
-            if (product.CategoryID != null)
+            if (product.Category != null)
             {
-                listSerialUrl.Add(product.CategoryID);
-               
-                var category = await _context.Categories.Include(x => x.CategoryChildrens).Where(x => x.ID == product.CategoryID).FirstOrDefaultAsync();
+                var categorys = await _categoryService.GetCategorysCacheAsync();
 
-                if (category.ParentCategoryID != null) 
+                var curentCategory = FindCategoryBySlug(categorys, product.Category.Slug, listSerialUrl);
+
+                if (curentCategory != null)
                 {
-                    listSerialUrl.Add($"{category.ParentCategoryID}");
+                    SerialSlugCategorys(curentCategory, listSerialUrl);
                 }
-
-                SerialIdCategorys(category, listSerialUrl);
-
+              
             }
         
             if (product.ImageURL is null)
@@ -148,13 +147,13 @@ namespace WebProject.Controllers
                 product.ImageURL = _fileService.HttpContextAccessorPathImgSrcIndex(ProductImg.GetProductImg(), product.ImageURL);
             }
 
-           
+            var productModal = new DetailProductModal();
 
             productModal.Products = await _context
                     .Products
                     .Include(p => p.Category)
                     .Include(p=> p.Specifications)
-                    .Where(p => listSerialUrl.Contains(p.CategoryID))
+                    .Where(p => listSerialUrl.Contains(p.Category.Slug))
                     .Select(p => new Product
                     {
                         ID = p.ID,
@@ -164,9 +163,9 @@ namespace WebProject.Controllers
                         ImageURL = p.ImageURL,
                         Description = p.Description,
                         Category = p.Category,
-                        Specifications = p.Specifications,
-                    })
+                        Specifications = p.Specifications
 
+                    })
                     .Take(12)
                     .ToListAsync();
 
@@ -208,6 +207,67 @@ namespace WebProject.Controllers
             ViewData["curenturl"] = HttpContextAccessorPathDomainFull();
 
             return View(productModal);
+        }
+
+        public class InputGroupModel
+        {
+            public Category CurentCategory { get; set; }
+            public List<Product> RelateProducts { get; set; }
+        }
+
+        [HttpGet]
+        [Route("danh-muc/{slug}")]
+        public async Task<IActionResult> Group([FromRoute]string slug, [FromQuery] ProductParameters productParameter)
+        {
+            var categorys = await _categoryService.GetCategorysCacheAsync();
+
+            var listSerialUrl = new List<string>();
+            
+            var curentCategory = FindCategoryBySlug(categorys, slug, listSerialUrl);
+
+            if (curentCategory == null)
+            {
+                return NotFound("không tìm thấy danh mục");
+            }
+
+            var productPagin = await _productService.GetProductsPaginAsync(productParameter, curentCategory.ID);
+
+            var inputModel = new InputGroupModel();
+            curentCategory.Products = productPagin.IndexProducts.ToList();
+
+            foreach (var product in curentCategory.Products)
+            {
+                product.ImageURL = _fileService.HttpContextAccessorPathImgSrcIndex(ProductImg.GetProductImg(), product.ImageURL) ?? "/Image/default.jpg";
+            }
+
+            SerialSlugCategorys(curentCategory, listSerialUrl);
+
+            inputModel.CurentCategory = curentCategory;
+            
+            inputModel.RelateProducts = await _context
+                    .Products
+                    .Include(p => p.Category)
+                    .Where(p => listSerialUrl.Contains(p.Category.Slug))
+                    .Select(p => new Product
+                    {
+                        ID = p.ID,
+                        Name = p.Name,
+                        Title = p.Title,
+                        Slug = p.Slug,
+                        ImageURL = p.ImageURL,
+                        Description = p.Description,
+                        Category = p.Category,
+                    })
+                    .Take(12)
+                    .AsNoTracking()
+                    .ToListAsync();
+            foreach (var product in inputModel.RelateProducts)
+            {
+                product.ImageURL = _fileService.HttpContextAccessorPathImgSrcIndex(ProductImg.GetProductImg(), product.ImageURL) ?? "/Image/default.jpg";
+            }
+
+
+            return View(inputModel);
         }
 
 
@@ -303,6 +363,7 @@ namespace WebProject.Controllers
 
 
         [HttpGet]
+
         public  async Task<IActionResult> SuccessOrder([FromRoute] string id)
         {
             if (id == null)

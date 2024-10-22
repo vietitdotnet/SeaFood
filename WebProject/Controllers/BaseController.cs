@@ -59,9 +59,9 @@ namespace WebProject.Controllers
 
         }
 
+  
         [NonAction]
-
-        protected Category FindCategoryBySlug(List<Category> groups, string slug, List<string> slugs)
+        protected Category FindCategoryBySlug(IEnumerable<Category> groups, string slug, List<string> slugs)
         {
             try
             {
@@ -79,6 +79,7 @@ namespace WebProject.Controllers
                     var p1 = FindCategoryBySlug(p.CategoryChildrens?.ToList() ?? new List<Category>(), slug, slugs);
 
                     if (p1 != null)
+
                         return p1;
                 }
                 slugs.RemoveAt(slugs.Count() - 1);

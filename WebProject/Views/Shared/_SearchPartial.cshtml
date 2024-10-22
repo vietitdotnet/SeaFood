@@ -15,11 +15,11 @@
 <input type="hidden" id="domain" value="@domain" />
 
 <div class="navbar-below-menu">
-    <form id="submit-search" method="post" asp-action="searchindex">
+    <form id="submit-search" asp-controller="search" method="post" asp-action="submitsearch">
         <div class="search-input">
 
-            <input id="search-list" type="search" aria-label="Search" placeholder="Tên sản phẩm" name="search">
-            <input type="hidden" id="hfProduct" name="productId" />
+            <input id="search-list" type="search" aria-label="Search" placeholder="Tên sản phẩm" name="key">
+            <input type="hidden" id="hfProduct" name="slug" />
 
             <div id="autocom-box" class="autocom-box">
                 <!-- here list are inserted from javascript -->

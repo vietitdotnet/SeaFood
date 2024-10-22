@@ -61,8 +61,20 @@
       "PackagePath": "staticwebassets\\Image\\san-pham-ban-chay.svg"
     },
     {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\css\\aside-outstanding-product.css",
+      "PackagePath": "staticwebassets\\css\\aside-outstanding-product.css"
+    },
+    {
       "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\css\\card-carousel-slider.css",
       "PackagePath": "staticwebassets\\css\\card-carousel-slider.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\css\\detail-product.css",
+      "PackagePath": "staticwebassets\\css\\detail-product.css"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\css\\gird-card-product.css",
+      "PackagePath": "staticwebassets\\css\\gird-card-product.css"
     },
     {
       "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\css\\hotline.css",
@@ -125,6 +137,22 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\icon\\icon-seo-1.webp",
+      "PackagePath": "staticwebassets\\icon\\icon-seo-1.webp"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\icon\\icon-seo-2.webp",
+      "PackagePath": "staticwebassets\\icon\\icon-seo-2.webp"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\icon\\icon-seo-3.webp",
+      "PackagePath": "staticwebassets\\icon\\icon-seo-3.webp"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\icon\\icon-seo-4.webp",
+      "PackagePath": "staticwebassets\\icon\\icon-seo-4.webp"
+    },
+    {
       "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\icon\\load.gif",
       "PackagePath": "staticwebassets\\icon\\load.gif"
     },
@@ -149,8 +177,16 @@
       "PackagePath": "staticwebassets\\js\\carousel.js"
     },
     {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\js\\collapse-show.js",
+      "PackagePath": "staticwebassets\\js\\collapse-show.js"
+    },
+    {
       "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\js\\qr.js",
       "PackagePath": "staticwebassets\\js\\qr.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\js\\search-index.js",
+      "PackagePath": "staticwebassets\\js\\search-index.js"
     },
     {
       "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\js\\shared-facebook.js",
@@ -159,6 +195,10 @@
     {
       "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\js\\zoom-img.js",
+      "PackagePath": "staticwebassets\\js\\zoom-img.js"
     },
     {
       "Id": "D:\\C#\\WebProject\\webproject\\wwwroot\\lib\\bootstrap\\LICENSE",

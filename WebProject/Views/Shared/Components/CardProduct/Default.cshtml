@@ -1,8 +1,11 @@
 ﻿@model Product
 
 <div class="card">
-    <div class="top-card">
-        <a asp-area="" asp-action="detail" asp-route-slug="@Model.Slug"><img src="@Model.ImageURL" alt=""></a>
+    <div class="top-card box-image">
+       
+        <a asp-area="" asp-action="detail" asp-controller="home" asp-route-slug="@Model.Slug">
+            <img src="@Model.ImageURL" alt="">
+        </a>
     </div>
     <div class="bottom-card">
         <div class="top-btn">@Model.Category?.Name</div>

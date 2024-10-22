@@ -12,6 +12,10 @@ namespace WebProject.Services.ProductService
         Task<Product> UpdateProductAsync(Product product);
         Task DeleteProductAsync(string id);
 
-        Task<ProductPagin> GetProductsPaginAsync(ProductParameters productParameter);
+        Task<ProductPagin> GetProductsPaginAsync(ProductParameters productParameter , string categoryId);
+        Task<ProductPagin> GetManagerProductsPaginAsync(ProductParameters productParameter);
+
+        Task<IEnumerable<Product>> GetProductsCacheAsync();
+
     }
 }

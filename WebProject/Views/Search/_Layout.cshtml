@@ -1,0 +1,72 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout != null)
+    {
+        Layout = parentLayout.ToString();
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    var statusMessage = TempData["StatusMessage"] as string;
+}
+@section Meta{
+    @RenderSection("Meta", required: false)
+
+}
+
+@section Links {
+    @RenderSection("Links", required: false)
+}
+
+<div class="navbar-search-box">
+    <nav class="pt-2 pb-2 container">
+        <div class="row">
+            <div class="col-md-7 navbar-bottom ">
+                <ul class="d-flex flex-row navbar-nav me-auto mb-2 mb-lg-0">
+                    <li>
+                        <a class="btn btn-outline-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                            <i class="bi bi-menu-up"></i>
+                        </a>
+                    </li>
+
+                    @*<li class="nav-item">
+                    <a class="nav-link ms-3" aria-current="page" href="#">Bán chạy</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link ms-3" href="#">Xem nhiều nhất</a>
+                    </li>*@
+                </ul>
+
+            </div>
+
+            <div class="col-md-5">
+                <partial name="_SearchPartial" />
+            </div>
+        </div>
+
+    </nav>
+</div>
+
+
+<partial name="_MultiLevelMenuCategory" />
+<nav aria-label="breadcrumb" class="container">
+    <ol class="breadcrumb d-flex justify-content-center">
+        <li class="breadcrumb-item"><a href="#"><i class="bi bi-search"></i> Tìm kiếm</a></li>
+        @RenderSection("breadcrumb", required: false)
+    </ol>
+</nav>
+
+
+
+@RenderSection("OffcanvaGroups", required: false)
+
+
+<div class="container">
+    
+    @RenderBody()
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

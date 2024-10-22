@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<Category>
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = $"Cá Giống Đại Dương";
+    ViewData["description"] = "Cá giống Đại Dương chuyên bán các loại cá giống chất lượng , cá nước mặn, nước lợ , có nguồn gốc rõ ràng giá cả hợp lý cho khách hàng. Chuyên tư vấn hổ trợ người nuôi thành công đạt lợi nhuận cao";
+    
 }
 
 @section Links{
@@ -9,6 +11,8 @@
     <link href="~/css/search-autocomplete.css" rel="stylesheet" />
     <link href="~/css/hotline.css" rel="stylesheet" />
     <link href="~/css/card-carousel-slider.css" rel="stylesheet" />
+    
+    
 }
 
 
@@ -17,7 +21,7 @@
     @if (category.Products?.Count() > 0)
     {
         <div class="title-category mt-3">
-            <h6><i class="bi bi-award text-primary"></i> @category.Name</h6>
+            <h6><i class="bi bi-bookmark-plus"></i> @category.Name</h6>
         </div>
 
         @await Component.InvokeAsync("SliderBoxOwlCarouselProduct" ,category.Products)
@@ -25,77 +29,19 @@
     
 }
 
-<div class="hotline ">
-    <div id="phonering-alo-phoneIcon" class="phonering-alo-phone phonering-alo-green phonering-alo-show">
-        <span class="number"><a href="tel:0903032767"><i class="fas fa-caret-left"></i>090.303.2767</a></span>
-        <div class="phonering-alo-ph-circle"></div>
-        <div class="phonering-alo-ph-circle-fill"></div>
-        <div class="phonering-alo-ph-img-circle ">
-            <a class="pps-btn-img" href="tel:0903032767"></a>
-        </div>
-    </div>
-</div>
-
-<div class="zalo-container right" style="bottom:20px;">
-    <a id="zalo-btn" href="https://zalo.me/0903032767" target="_blank" rel="noopener noreferrer nofollow">
-        <div class="zalo-ico zalo-has-notify">
-            <div class="zalo-ico-main">
-      
-                <img src="~/icon/zalo.png" alt="Contact Me on Zalo"/>
-            </div>
-            <em></em>
-        </div>
-    </a>
-</div>
 
 
+@section OffcanvaGroups{
+
+    @await Component.InvokeAsync("OffcanvaGroups", null)
+}
+
+<partial name="_HotLinePartial" />
 
 @section Scripts{
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            var domain = document.getElementById("domain").value;
-            $('#search-list').autocomplete({
-
-                source: function (request, response) {
-                    document.getElementById("icon-load").style.display = "block";
-
-                    debugger
-                    $.ajax({
-                        url: "/Search/SearchProduct",
-                        data: { "prefix": request.term },
-                        dataType: "json",
-                        type: "POST",
-                        success: function (data) {
-                            debugger
-                            document.getElementById("icon-load").style.display = "none";
-                            console.log(data);
-                            response(data);
-                        },
-                        error: function (response) {
-                            alert(response.responseText);
-                        },
-                        failure: function (response) {
-                            alert(response.responseText);
-                        }
-                    })
-                },
-                appendTo: "#autocom-box",
-                select: function (e, i) {
-
-                    debugger
-
-                    $("#hfProduct").val(i.item.val);
-                    document.getElementById("submit-search").submit();
-                },
-                minLength: 1
-            }).autocomplete("instance")._renderItem = function (ul, item) {
-
-                var item = $('<div class="list_item_container d-flex flex-row bd-highlight mb-3"><div class="image-search-box"><img class="imageClass p-2 bd-highlight" src="' + item.img + '"></div><div class="label-item-search p-2 bd-highlight">' + item.name + '</div><div class="label-item-search p-2 bd-highlight">' + item.price + '</div></div>')
-                return $("<li>").append(item).appendTo(ul);
-            };
-        });
-    </script>
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   <script src="~/js/search-index.js"></script>
+    
 }
 
 

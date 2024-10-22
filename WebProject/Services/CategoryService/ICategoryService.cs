@@ -12,6 +12,7 @@ namespace WebProject.Services.CategoryService
         Task<Category> UpdateCategoryAsync(Category category);
 
         Task<IEnumerable<Category>> GetCategorysCacheAsync();
+
         Task DeleteCategoryAsync(string id);
 
     }

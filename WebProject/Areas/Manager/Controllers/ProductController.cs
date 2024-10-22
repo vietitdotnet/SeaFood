@@ -1,10 +1,4 @@
-﻿using SixLabors.ImageSharp;
-
-using SixLabors.ImageSharp.Formats.Jpeg;
-
-using SixLabors.ImageSharp.Processing;
-
-
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
@@ -65,7 +59,7 @@ namespace WebProject.Areas.Manager.Controllers
         public async Task<IActionResult> Index([FromQuery] ProductParameters productParameter)
         {
 
-            var product = await _productService.GetProductsPaginAsync(productParameter);
+            var product = await _productService.GetManagerProductsPaginAsync(productParameter);
 
             foreach (var item in product.Products)
             {
@@ -79,7 +73,6 @@ namespace WebProject.Areas.Manager.Controllers
                 }
                
             }
-
 
             return View(product);
         }
